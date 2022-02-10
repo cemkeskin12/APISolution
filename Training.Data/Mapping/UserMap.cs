@@ -17,7 +17,7 @@ namespace Training.Data.Mapping
             builder.Property(u => u.FirstName).IsRequired();
             builder.Property(u => u.FirstName).HasMaxLength(30);
 
-            builder.Property(u => u.LastName).IsRequired();
+            builder.Property(u => u.LastName);
             builder.Property(u => u.LastName).HasMaxLength(30);
 
             builder.HasKey(u => u.Id);
@@ -53,38 +53,38 @@ namespace Training.Data.Mapping
             // Each User can have many entries in the UserRole join table
             builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
 
-            var adminUser = new User
-            {
-                Id = 1,
-                UserName = "adminuser",
-                FirstName = "Cem",
-                LastName = "Keskin",
-                NormalizedUserName = "ADMINUSER",
-                Email = "adminuser@gmail.com",
-                NormalizedEmail = "ADMINUSER@GMAIL.COM",
-                PhoneNumber = "+905555555555",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-            adminUser.PasswordHash = CreatePasswordHash(adminUser, "adminuser");
-            var editorUser = new User
-            {
-                Id = 2,
-                UserName = "editoruser",
-                FirstName = "deneme",
-                LastName = "user",
-                NormalizedUserName = "EDITORUSER",
-                Email = "editoruser@gmail.com",
-                NormalizedEmail = "EDITORUSER@GMAIL.COM",
-                PhoneNumber = "+905555555555",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-            editorUser.PasswordHash = CreatePasswordHash(editorUser, "editoruser");
+            //var adminUser = new User
+            //{
+            //    Id = 1,
+            //    UserName = "adminuser",
+            //    FirstName = "Cem",
+            //    //LastName = "Keskin",
+            //    NormalizedUserName = "ADMINUSER",
+            //    Email = "adminuser@gmail.com",
+            //    NormalizedEmail = "ADMINUSER@GMAIL.COM",
+            //    PhoneNumber = "+905555555555",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //adminUser.PasswordHash = CreatePasswordHash(adminUser, "adminuser");
+            //var editorUser = new User
+            //{
+            //    Id = 2,
+            //    UserName = "editoruser",
+            //    FirstName = "deneme",
+            //    LastName = "user",
+            //    NormalizedUserName = "EDITORUSER",
+            //    Email = "editoruser@gmail.com",
+            //    NormalizedEmail = "EDITORUSER@GMAIL.COM",
+            //    PhoneNumber = "+905555555555",
+            //    EmailConfirmed = true,
+            //    PhoneNumberConfirmed = true,
+            //    SecurityStamp = Guid.NewGuid().ToString()
+            //};
+            //editorUser.PasswordHash = CreatePasswordHash(editorUser, "editoruser");
 
-            builder.HasData(adminUser, editorUser);
+            //builder.HasData(adminUser, editorUser);
         }
         private string CreatePasswordHash(User user, string password)
         {

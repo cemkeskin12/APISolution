@@ -58,19 +58,19 @@ namespace Training.Data.Migrations
                         {
                             Id = 1,
                             Age = 22,
-                            CreatedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3278),
+                            CreatedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1506),
                             FirstName = "Cem",
                             LastName = "Keskin",
-                            ModifiedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3279)
+                            ModifiedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1507)
                         },
                         new
                         {
                             Id = 2,
                             Age = 33,
-                            CreatedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3280),
+                            CreatedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1509),
                             FirstName = "Training",
                             LastName = "Two",
-                            ModifiedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3280)
+                            ModifiedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1509)
                         });
                 });
 
@@ -115,8 +115,8 @@ namespace Training.Data.Migrations
                             Id = 1,
                             AuthorId = 1,
                             Content = "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.",
-                            CreatedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2275),
-                            ModifiedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2295),
+                            CreatedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(853),
+                            ModifiedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(861),
                             PageCount = 0,
                             Title = "Vestibulum ac diam sit"
                         },
@@ -125,8 +125,8 @@ namespace Training.Data.Migrations
                             Id = 2,
                             AuthorId = 2,
                             Content = "Vestibulum ac diam sit amet quam vehicula elementum  malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit.",
-                            CreatedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2297),
-                            ModifiedDate = new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2297),
+                            CreatedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(863),
+                            ModifiedDate = new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(863),
                             PageCount = 0,
                             Title = "Vestibulum ac diam sit lorem ipsum dolor sit amet"
                         });
@@ -160,36 +160,6 @@ namespace Training.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ConcurrencyStamp = "442ed764-51d9-4562-b1d6-967b81a996e8",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ConcurrencyStamp = "5c5f703c-c10f-43a5-a1ad-8f340bdbc39d",
-                            Name = "Editor",
-                            NormalizedName = "EDITOR"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ConcurrencyStamp = "893450a8-2f50-48d7-a262-8b9bb60b079f",
-                            Name = "Manager",
-                            NormalizedName = "MANAGER"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ConcurrencyStamp = "1d6bc15d-8576-42e8-b5cc-3f8b0870447a",
-                            Name = "SuperAdmin",
-                            NormalizedName = "SUPERADMIN"
-                        });
                 });
 
             modelBuilder.Entity("Training.Entity.Entities.RoleClaim", b =>
@@ -244,7 +214,6 @@ namespace Training.Data.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -292,46 +261,6 @@ namespace Training.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "2869069e-07df-4e0b-8177-fce117e3badf",
-                            Email = "adminuser@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Cem",
-                            LastName = "Keskin",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMINUSER@GMAIL.COM",
-                            NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDW2jfGJpZkRxuEasHzIJ2CsXJzj1TngLVwqZKlfKDG3Wf0uUQ+hOHAl+g43Sa6McA==",
-                            PhoneNumber = "+905555555555",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "4563f582-b6e1-42d6-aa8e-1182a80c766e",
-                            TwoFactorEnabled = false,
-                            UserName = "adminuser"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "b247890a-a857-403c-acff-7ef07f743053",
-                            Email = "editoruser@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "deneme",
-                            LastName = "user",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "EDITORUSER@GMAIL.COM",
-                            NormalizedUserName = "EDITORUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOq6ghrk/FbTaQobbWPKqn7vrDeRzbfWssl7cMcsqWwFV8/71PFcvJe1PZYvKxNxTw==",
-                            PhoneNumber = "+905555555555",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "0fca0175-58f7-4538-b332-40d621be2fe6",
-                            TwoFactorEnabled = false,
-                            UserName = "editoruser"
-                        });
                 });
 
             modelBuilder.Entity("Training.Entity.Entities.UserClaim", b =>
@@ -394,18 +323,6 @@ namespace Training.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            RoleId = 4
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            RoleId = 2
-                        });
                 });
 
             modelBuilder.Entity("Training.Entity.Entities.UserToken", b =>
@@ -420,6 +337,9 @@ namespace Training.Data.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");

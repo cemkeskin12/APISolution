@@ -9,5 +9,6 @@ namespace Training.Entity.Entities
 {
     public class UserToken : IdentityUserToken<int>
     {
+        public DateTime ExpireDate { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Training.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,7 @@ namespace Training.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -162,6 +162,7 @@ namespace Training.Data.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    ExpireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -200,51 +201,24 @@ namespace Training.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
-                {
-                    { 1, "442ed764-51d9-4562-b1d6-967b81a996e8", "User", "USER" },
-                    { 2, "5c5f703c-c10f-43a5-a1ad-8f340bdbc39d", "Editor", "EDITOR" },
-                    { 3, "893450a8-2f50-48d7-a262-8b9bb60b079f", "Manager", "MANAGER" },
-                    { 4, "1d6bc15d-8576-42e8-b5cc-3f8b0870447a", "SuperAdmin", "SUPERADMIN" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[,]
-                {
-                    { 1, 0, "2869069e-07df-4e0b-8177-fce117e3badf", "adminuser@gmail.com", true, "Cem", "Keskin", false, null, "ADMINUSER@GMAIL.COM", "ADMINUSER", "AQAAAAEAACcQAAAAEDW2jfGJpZkRxuEasHzIJ2CsXJzj1TngLVwqZKlfKDG3Wf0uUQ+hOHAl+g43Sa6McA==", "+905555555555", true, "4563f582-b6e1-42d6-aa8e-1182a80c766e", false, "adminuser" },
-                    { 2, 0, "b247890a-a857-403c-acff-7ef07f743053", "editoruser@gmail.com", true, "deneme", "user", false, null, "EDITORUSER@GMAIL.COM", "EDITORUSER", "AQAAAAEAACcQAAAAEOq6ghrk/FbTaQobbWPKqn7vrDeRzbfWssl7cMcsqWwFV8/71PFcvJe1PZYvKxNxTw==", "+905555555555", true, "0fca0175-58f7-4538-b332-40d621be2fe6", false, "editoruser" }
-                });
+                table: "Authors",
+                columns: new[] { "Id", "Age", "CreatedDate", "FirstName", "LastName", "ModifiedDate" },
+                values: new object[] { 1, 22, new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1506), "Cem", "Keskin", new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1507) });
 
             migrationBuilder.InsertData(
                 table: "Authors",
                 columns: new[] { "Id", "Age", "CreatedDate", "FirstName", "LastName", "ModifiedDate" },
-                values: new object[,]
-                {
-                    { 1, 22, new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3278), "Cem", "Keskin", new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3279) },
-                    { 2, 33, new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3280), "Training", "Two", new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(3280) }
-                });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
-                values: new object[,]
-                {
-                    { 4, 1 },
-                    { 2, 2 }
-                });
+                values: new object[] { 2, 33, new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1509), "Training", "Two", new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(1509) });
 
             migrationBuilder.InsertData(
                 table: "Books",
                 columns: new[] { "Id", "AuthorId", "Content", "CreatedDate", "ModifiedDate", "PageCount", "Title" },
-                values: new object[,]
-                {
-                    { 1, 1, "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.", new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2275), new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2295), 0, "Vestibulum ac diam sit" },
-                    { 2, 2, "Vestibulum ac diam sit amet quam vehicula elementum  malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit.", new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2297), new DateTime(2022, 1, 31, 14, 59, 43, 581, DateTimeKind.Local).AddTicks(2297), 0, "Vestibulum ac diam sit lorem ipsum dolor sit amet" }
-                });
+                values: new object[] { 1, 1, "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.", new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(853), new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(861), 0, "Vestibulum ac diam sit" });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "AuthorId", "Content", "CreatedDate", "ModifiedDate", "PageCount", "Title" },
+                values: new object[] { 2, 2, "Vestibulum ac diam sit amet quam vehicula elementum  malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit.", new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(863), new DateTime(2022, 2, 10, 12, 21, 14, 63, DateTimeKind.Local).AddTicks(863), 0, "Vestibulum ac diam sit lorem ipsum dolor sit amet" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

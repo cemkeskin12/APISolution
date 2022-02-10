@@ -17,20 +17,21 @@ namespace Training.Data.Mapping
 
             // Maps to the AspNetUserRoles table
             builder.ToTable("AspNetUserRoles");
-            builder.HasData(
-                // Category.Create
-                new UserRole
-                {
-                    UserId = 1,
-                    RoleId = 4
+            //    builder.HasData(
+            //        // Category.Create
+            //        new UserRole
+            //        {
+            //            UserId = 1,
+            //            RoleId = 4
 
-                },
-                new UserRole
-                {
-                    UserId = 2,
-                    RoleId = 2
-                }
-                );
+            //        },
+            //        new UserRole
+            //        {
+            //            UserId = 2,
+            //            RoleId = 2
+            //        }
+            //        );
+            //}
         }
     }
 }

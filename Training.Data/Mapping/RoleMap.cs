@@ -37,36 +37,36 @@ namespace Training.Data.Mapping
 
             // Each Role can have many associated RoleClaims
             builder.HasMany<RoleClaim>().WithOne().HasForeignKey(rc => rc.RoleId).IsRequired();
-            builder.HasData(
-                new Role
-                {
-                    Id = 1,
-                    Name = "User",
-                    NormalizedName = "USER",
-                    ConcurrencyStamp = Guid.NewGuid().ToString()
-                },
-                new Role
-                {
-                    Id = 2,
-                    Name = "Editor",
-                    NormalizedName = "EDITOR",
-                    ConcurrencyStamp = Guid.NewGuid().ToString()
-                },
-                new Role
-                {
-                    Id = 3,
-                    Name = "Manager",
-                    NormalizedName = "MANAGER",
-                    ConcurrencyStamp = Guid.NewGuid().ToString()
-                },
-                new Role
-                {
-                    Id = 4,
-                    Name = "SuperAdmin",
-                    NormalizedName = "SUPERADMIN",
-                    ConcurrencyStamp = Guid.NewGuid().ToString()
-                }
-            );
+            //builder.HasData(
+            //    new Role
+            //    {
+            //        Id = 1,
+            //        Name = "User",
+            //        NormalizedName = "USER",
+            //        ConcurrencyStamp = Guid.NewGuid().ToString()
+            //    },
+            //    new Role
+            //    {
+            //        Id = 2,
+            //        Name = "Editor",
+            //        NormalizedName = "EDITOR",
+            //        ConcurrencyStamp = Guid.NewGuid().ToString()
+            //    },
+            //    new Role
+            //    {
+            //        Id = 3,
+            //        Name = "Manager",
+            //        NormalizedName = "MANAGER",
+            //        ConcurrencyStamp = Guid.NewGuid().ToString()
+            //    },
+            //    new Role
+            //    {
+            //        Id = 4,
+            //        Name = "SuperAdmin",
+            //        NormalizedName = "SUPERADMIN",
+            //        ConcurrencyStamp = Guid.NewGuid().ToString()
+            //    }
+            //);
         }
     }
 }
